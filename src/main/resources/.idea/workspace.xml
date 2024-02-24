@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d0353cb8-eb04-4735-9081-923f351b95cf" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java/com/prashanth/expense/service/datamanipulation/FilterProcessorImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java/com/prashanth/expense/service/datamanipulation/FilterProcessorImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java/com/prashanth/expense/utils/CommonUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java/com/prashanth/expense/utils/CommonUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java/com/prashanth/expense/utils/MonthMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java/com/prashanth/expense/utils/MonthMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/application.properties" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 0
+}]]></component>
+  <component name="ProjectId" id="2cSreMLddRW0cLo3rC5GuNQSsjj" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "FINAL-WORKING",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d0353cb8-eb04-4735-9081-923f351b95cf" name="Changes" comment="" />
+      <created>1708115914792</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1708115914792</updated>
+      <workItem from="1708115915900" duration="12000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

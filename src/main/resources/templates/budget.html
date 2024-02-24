@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dynamic Form</title>
+</head>
+<!-- Add jQuery and jQuery UI -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!-- Datepicker styles -->
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" th:href="@{/css/budget.css}">
+<script type=text/javascript th:src="@{/js/budget.js}"></script>
+<!-- Add this in your HTML file -->
+<link rel="stylesheet" href="https://unpkg.com/simplebar@5.3.4/dist/simplebar.min.css">
+<script src="https://unpkg.com/simplebar@5.3.4/dist/simplebar.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Get the table element
+        var table = document.querySelector('.table-container table');
+
+        // Get the tbody element
+        var tbody = table.querySelector('tbody');
+
+        // Get all rows in the tbody
+        var rows = Array.from(tbody.querySelectorAll('tr'));
+
+        // Sort the rows based on the date in the first column
+        rows.sort(function (a, b) {
+            var dateA = getDateFromCell(a.cells[0]);
+            var dateB = getDateFromCell(b.cells[0]);
+            return dateA - dateB;
+        });
+
+        // Clear the tbody content
+        tbody.innerHTML = '';
+        // Append the sorted rows back to the tbody
+        rows.forEach(function (row) {
+            tbody.appendChild(row);
+        });
+    });
+
+    function getDateFromCell(cell) {
+        var dateString = cell.textContent.trim();
+        var parts = dateString.split('/');
+        return new Date(parts[2], parts[1] - 1, parts[0]); // Note: Adjust the order of parts
+    }
+</script>
+<body>
+<div class="filterForm" id="filterForm">
+    <!--<form th:action="@{/filter}" method="get">-->
+    <!--    < action="/processForm" method="post">-->
+    <form action="/processForm" method="post">
+        <h2><label>FILTER</label></h2>
+        <button type="button" id="toggleButton" onclick="toggleFieldsFilter()">OPEN FILTER</button>
+        <div id="allFields" style="display: none;">
+            <label>YEAR</label>
+            <label for="year"></label>
+            <select class="year" id="year" name="year" required>
+                <option th:selected="selected" th:disabled="disabled"
+                        value="">Please Select...
+                </option>                <option th:each="yearCategory : ${allYearCategories}"
+                        th:value="${yearCategory}"
+                        th:text="${yearCategory}"></option>
+            </select>
+
+            <label>MONTH</label>
+            <label for="month"></label>
+            <select class="month" id="month" name="month">
+                <option th:selected="selected" th:disabled="disabled"
+                        value="">Please Select...
+                </option>                <option th:each="monthCategory : ${allMonthCategories}"
+                        th:value="${monthCategory}"
+                        th:text="${monthCategory}"></option>
+            </select>
+
+            <label>Expense</label>
+            <label for="billType"></label>
+            <select class="billType" id="billType" name="billType">
+                <option th:selected="selected" th:disabled="disabled"
+                        value="">Please Select...
+                </option>
+                <option th:each="expenseCategory : ${allExpenseCategories}"
+                        th:value="${expenseCategory}"
+                        th:text="${expenseCategory}"></option>
+            </select>
+
+            <label>Card Name</label>
+            <label for="cardType"></label>
+            <select class="cardType" id="cardType" name="cardType">
+                <option th:selected="selected" th:disabled="disabled"
+                        value="">Please Select...
+                </option>                <option th:each="creditCardCategory : ${allCreditCardCategories}"
+                        th:value="${creditCardCategory}"
+                        th:text="${creditCardCategory}"></option>
+            </select>
+
+            <button type="submit">SUBMIT</button>
+        </div>
+    </form>
+</div>
+<!--<div class="table-container"  data-simplebar>-->
+<div class="table-container">
+    <table>
+        <thead>
+        <tr>
+            <th>DATE</th>
+            <th>AMOUNT</th>
+
+            <!--            <th>DATE</th>-->
+            <th>EXPENSE TYPE</th>
+            <!--            <th>BILL CATEGORY</th>-->
+            <th>EXPENSE DETAILS</th>
+            <th>ACTION</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="item : ${filteredData}">
+            <td th:text="${#dates.format(item.date, 'dd / MM / yyyy')}"></td>
+            <!--            <td th:text="${#dates.format(item.date, 'MM/yyyy')}"></td>-->
+
+            <!--                        <td th:text="${item.date}"></td>-->
+            <!--            <td th:text="${item.amount}"></td>-->
+            <td th:text="'₹ ' + ${item.amount}"></td>
+
+            <td th:text="${item.expenseSource}"></td>
+            <!--            <td th:text="${item.billCategory}"></td>-->
+            <td th:text="${item.remarks}"></td>
+
+            <td>
+                <!--                <a class="edit-button" th:href="@{'/edit/' + ${item.getTransactionId()}}">Edit</a>-->
+                <a class="delete-button" th:href="@{'/delete/' + ${item.getTransactionId}}"
+                   onclick="return confirm('Are you sure?')">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <!--    <a class="add-button" th:href="@{/expenseForm}">ADD NEW TRANSACTION</a>-->
+
+
+</div>
+<div class="transactionForm" id="transactionForm">
+    <form action="/processForm" method="post">
+        <h2><label>TRANSACTION</label></h2>
+
+        <label for="options"></label>
+        <select id="options" name="selectedOption" onchange="showFields()">
+            <option th:selected="selected" th:disabled="disabled"
+                    value="">Please Select...
+            </option>
+
+            <!--        <option value="">Select an option</option>-->
+            <option value="creditExpense">CREDIT EXPENSE</option>
+            <option value="debitExpense">DEBIT EXPENSE</option>
+            <option value="addBalance">ADD BALANCE</option>
+            <option value="repayment">REPAYMENT</option>
+            <!--            <option value="splitwise">SPLITWISE</option>-->
+        </select>
+        <form action="/processForm" method="post">
+
+            <div id="creditExpenseFields" style="display: none;">
+                <div>
+                    <h3><label class="creditCardAmount" for="creditCardAmount">Amount</label></h3>
+                    <input type="text" name="creditCardAmount" id="creditCardAmount" required autocomplete="off">
+                </div>
+                <div>
+                    <h3><label>Card Name</label></h3>
+                    <label for="cardName"></label>
+                    <select class="cardName" id="cardName" name="cardName" required>
+                        <option th:selected="selected" th:disabled="disabled"
+                                value="">Please Select...
+                        </option>
+                        <option th:each="creditCardCategory : ${allCreditCardCategories}"
+                                th:value="${creditCardCategory}"
+                                th:text="${creditCardCategory}"></option>
+                    </select>
+                </div>
+                <div>
+                    <h3><label>Bill Type</label></h3>
+                    <label for="creditExpenseType"></label>
+                    <select class="creditExpenseType" id="creditExpenseType" name="creditExpenseType" required>
+                        <option th:selected="selected" th:disabled="disabled"
+                                value="">Please Select...
+                        </option>
+                        <option th:each="expenseCategory : ${allExpenseCategories}"
+                                th:value="${expenseCategory}"
+                                th:text="${expenseCategory}"></option>
+                    </select>
+                </div>
+                <div>
+                    <h3><b class="dateStyle"> <label>Date</label></b></h3>
+                    <label for="creditDate"></label>
+                    <input type="text" class="creditDate" id="creditDate" name="creditDate" th:value="${defaultDate}"
+                           required autocomplete="off">
+                </div>
+                <div>
+                    <h3><label>REMARKS</label></h3>
+                    <label for="creditRemarks"></label>
+                    <input type="text" class="cred" id="creditRemarks" name="creditRemarks" autocomplete="off">
+                </div>
+                <button>SUBMIT</button>
+            </div>
+        </form>
+        <form action="/processForm" method="post">
+            <div id="debitExpenseFields" style="display: none;">
+
+                <div class="input">
+                    <label class="debitCardAmount" for="debitCardAmount">Amount</label>
+                    <input type="text" name="debitCardAmount" id="debitCardAmount" required autocomplete="off">
+                </div>
+                <div>
+                    <label>Bill Type</label>
+                    <label for="debitExpenseType"></label>
+                    <select class="debitExpenseType" id="debitExpenseType" name="debitExpenseType" required>
+                        <option th:selected="selected" th:disabled="disabled"
+                                value="">Please Select...
+                        </option>
+                        <option th:each="expenseCategory : ${allExpenseCategories}" th:value="${expenseCategory}"
+                                th:text="${expenseCategory}"></option>
+                    </select>
+                </div>
+                <div>
+                    <b class="dateStyle"> <label>Date</label></b>
+                    <label for="debitDate"></label>
+                    <input type="text" class="debitDate" id="debitDate" name="debitDate" th:value="${defaultDate}"
+                           required autocomplete="off">
+                </div>
+                <div>
+                    <h3><label>REMARKS</label></h3>
+                    <label for="debitRemarks"></label>
+                    <input type="text" class="debitRemarks" id="debitRemarks" name="debitRemarks" autocomplete="off">
+                </div>
+                <button>SUBMIT</button>
+            </div>
+        </form>
+        <form action="/processForm" method="post">
+            <div id="addBalanceFields" style="display: none;">
+                <!--            <label for="field3">Field 3:</label>-->
+                <!--            <input type="text" id="field3" name="field3">-->
+                <div class="input">
+                    <label class="addBalanceAmount" for="addBalanceAmount">Amount</label>
+                    <input type="text" name="addBalanceAmount" id="addBalanceAmount" required autocomplete="off">
+                </div>
+                <div>
+                    <b class="dateStyle"> <label>Date</label></b>
+                    <label for="addBalanceDate">
+
+                    </label><input type="text" class="addBalanceDate" id="addBalanceDate" name="addBalanceDate"
+                                   th:value="${defaultDate}"
+                                   required autocomplete="off">
+                </div>
+                <div>
+                    <h3><label>REMARKS</label></h3>
+                    <label for="balanceRemarks"></label>
+                    <input type="text" class="balanceRemarks" id="balanceRemarks" name="balanceRemarks"
+                           autocomplete="off">
+                </div>
+                <button>SUBMIT</button>
+
+            </div>
+        </form>
+        <form action="/processForm" method="post">
+
+            <div id="repaymentFields" style="display: none;">
+                <div class="input">
+                    <label class="repaymentAmount" for="repaymentAmount">Amount</label>
+                    <input type="text" name="repaymentAmount" id="repaymentAmount" required autocomplete="off">
+                </div>
+                <div>
+                    <div>
+                        <label>Card Name</label>
+                        <label for="cardName"></label>
+                        <select class="cardName" id="cardName" name="cardName" required>
+                            <option th:selected="selected" th:disabled="disabled"
+                                    value="">Please Select...
+                            </option>
+                            <option th:each="creditCardCategory : ${allCreditCardCategories}"
+                                    th:value="${creditCardCategory}"
+                                    th:text="${creditCardCategory}"></option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <b class="dateStyle"> <label>Date</label></b>
+                    <label for="creditRepaymentDate"></label>
+                    <input type="text" class="creditRepaymentDate" id="creditRepaymentDate" name="creditRepaymentDate"
+                           th:value="${defaultDate}"
+                           required autocomplete="off">
+                </div>
+                <button>SUBMIT</button>
+
+            </div>
+        </form>
+    </form>
+</div>
+
+<div class="expense-info">
+    <h5><label>TOTAL EXPENSE</label></h5>
+    <p class="hidden-text" th:text="${aggregatedAmount}"></p>
+</div>
+<div class="balance-info">
+    <h5><label>BALANCE</label></h5>
+    <p class="hidden-text" th:text="${balanceAmount}"></p>
+</div>
+<div class="axis-ace-info">
+    <h5><label>AXIS ACE</label></h5>
+    <p class="hidden-text" th:text="${cardExpenseOfAXISACE}"></p>
+</div>
+<div class="one-card-info">
+    <h5><label>ONE CARD</label></h5>
+    <p class="hidden-text" th:text="${cardExpenseOfONECARD}"></p>
+</div>
+<div class="axis-flipkart-info">
+    <h5><label>AXIS FLIPKART</label></h5>
+    <p class="hidden-text" th:text="${cardExpenseOfAXISFLIPKART}"></p>
+</div>
+<div class="hdfc-swiggy-info">
+    <h5><label>HDFC SWIGGY</label></h5>
+    <p class="hidden-text" th:text="${cardExpenseOfHDFCSWIGGY}"></p>
+</div>
+</body>
+</html>
