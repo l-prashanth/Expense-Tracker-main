@@ -1,4 +1,4 @@
-package com.prashanth.expense.utils;
+package com.prashanth.expense.service;
 
 import com.prashanth.expense.model.FilterTable;
 import com.prashanth.expense.repository.FilterTableRepository;
@@ -16,16 +16,20 @@ import org.springframework.context.annotation.Configuration;
 public class InitFilterCommandLineRunner {
 
     private FilterTableRepository filterTableRepository;
-    @Bean
-    CommandLineRunner initFilters(){
-        return args -> {
-            FilterTable filterTable = new FilterTable();
-            filterTable.setYear(0);
-            filterTable.setMonth(null);
-            filterTable.setCardType(null);
-            filterTable.setBillType(null);
-            filterTableRepository.save(filterTable);
-            log.info("Filter Cleared");
-        };
+
+     public void initFilterTable(){
+        FilterTable filterTable = new FilterTable();
+        filterTable.setYear(0);
+        filterTable.setMonth(null);
+        filterTable.setCardType(null);
+        filterTable.setBillType(null);
+        filterTableRepository.save(filterTable);
+        log.info("Filter Cleared");
     }
+//    @Bean
+//    CommandLineRunner initFilters(){
+//        return args -> {
+//
+//        };
+//    }
 }
