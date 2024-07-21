@@ -20,7 +20,7 @@ public class InitData {
         CommandLineRunner initFilters(){
         return args -> {
             initFilterCommandLineRunner.initFilterTable();
-            downloadTransactions.getAllDataAsJson();
+//            downloadTransactions.getAllDataAsJson();
         };
     }
 }
