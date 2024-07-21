@@ -1,12 +1,12 @@
 
 function validateForm() {
     // Check if either "Expense" or "Card Name" is selected
-    var expenseSelected = document.getElementById('billType').value !== '';
-    var cardSelected = document.getElementById('cardType').value !== '';
+    let expenseSelected = document.getElementById('billType').value !== '';
+    let cardSelected = document.getElementById('cardType').value !== '';
 
     // Set 'required' attribute on the "month" field accordingly
-    var monthField = document.getElementById('month');
-    var yearField = document.getElementById('year');
+    let monthField = document.getElementById('month');
+    let yearField = document.getElementById('year');
 
     monthField.required = expenseSelected || cardSelected;
     yearField.required = expenseSelected || cardSelected;
@@ -26,8 +26,8 @@ function validateForm() {
 }
 
 function toggleFieldsFilter() {
-    var allFieldsDiv = document.getElementById('allFields');
-    var toggleButton = document.getElementById('toggleButton');
+    let allFieldsDiv = document.getElementById('allFields');
+    let toggleButton = document.getElementById('toggleButton');
 
     if (allFieldsDiv.style.display === 'none') {
         allFieldsDiv.style.display = 'block';
@@ -46,7 +46,7 @@ function toggleFieldsFilter() {
     });
 }
 function showFields() {
-    var selectedOption = document.getElementById("options").value;// var filterOption = document.getElementById("filterOptionsSelect").value;
+    let selectedOption = document.getElementById("options").value;// let filterOption = document.getElementById("filterOptionsSelect").value;
 
 
     document.getElementById("creditExpenseFields").style.display = (selectedOption === "creditExpense") ? "block" : "none";

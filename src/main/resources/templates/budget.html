@@ -9,7 +9,7 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <!-- Datepicker styles -->
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<link rel="stylesheet" th:href="@{/css/budget.css}">
+<link rel="stylesheet" th:href="@{/css/todo.css}">
 <script type=text/javascript th:src="@{/js/budget.js}"></script>
 <!-- Add this in your HTML file -->
 <link rel="stylesheet" href="https://unpkg.com/simplebar@5.3.4/dist/simplebar.min.css">
@@ -17,18 +17,18 @@
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         // Get the table element
-        var table = document.querySelector('.table-container table');
+        let table = document.querySelector('.table-container table');
 
         // Get the tbody element
-        var tbody = table.querySelector('tbody');
+        let tbody = table.querySelector('tbody');
 
         // Get all rows in the tbody
-        var rows = Array.from(tbody.querySelectorAll('tr'));
+        let rows = Array.from(tbody.querySelectorAll('tr'));
 
         // Sort the rows based on the date in the first column
         rows.sort(function (a, b) {
-            var dateA = getDateFromCell(a.cells[0]);
-            var dateB = getDateFromCell(b.cells[0]);
+            let dateA = getDateFromCell(a.cells[0]);
+            let dateB = getDateFromCell(b.cells[0]);
             return dateA - dateB;
         });
 
@@ -41,8 +41,8 @@
     });
 
     function getDateFromCell(cell) {
-        var dateString = cell.textContent.trim();
-        var parts = dateString.split('/');
+        let dateString = cell.textContent.trim();
+        let parts = dateString.split('/');
         return new Date(parts[2], parts[1] - 1, parts[0]); // Note: Adjust the order of parts
     }
 </script>
@@ -59,7 +59,8 @@
             <select class="year" id="year" name="year" required>
                 <option th:selected="selected" th:disabled="disabled"
                         value="">Please Select...
-                </option>                <option th:each="yearCategory : ${allYearCategories}"
+                </option>
+                <option th:each="yearCategory : ${allYearCategories}"
                         th:value="${yearCategory}"
                         th:text="${yearCategory}"></option>
             </select>
@@ -69,7 +70,8 @@
             <select class="month" id="month" name="month">
                 <option th:selected="selected" th:disabled="disabled"
                         value="">Please Select...
-                </option>                <option th:each="monthCategory : ${allMonthCategories}"
+                </option>
+                <option th:each="monthCategory : ${allMonthCategories}"
                         th:value="${monthCategory}"
                         th:text="${monthCategory}"></option>
             </select>
@@ -90,7 +92,8 @@
             <select class="cardType" id="cardType" name="cardType">
                 <option th:selected="selected" th:disabled="disabled"
                         value="">Please Select...
-                </option>                <option th:each="creditCardCategory : ${allCreditCardCategories}"
+                </option>
+                <option th:each="creditCardCategory : ${allCreditCardCategories}"
                         th:value="${creditCardCategory}"
                         th:text="${creditCardCategory}"></option>
             </select>
@@ -99,17 +102,13 @@
         </div>
     </form>
 </div>
-<!--<div class="table-container"  data-simplebar>-->
 <div class="table-container">
     <table>
         <thead>
         <tr>
             <th>DATE</th>
             <th>AMOUNT</th>
-
-            <!--            <th>DATE</th>-->
             <th>EXPENSE TYPE</th>
-            <!--            <th>BILL CATEGORY</th>-->
             <th>EXPENSE DETAILS</th>
             <th>ACTION</th>
         </tr>
@@ -117,26 +116,16 @@
         <tbody>
         <tr th:each="item : ${filteredData}">
             <td th:text="${#dates.format(item.date, 'dd / MM / yyyy')}"></td>
-            <!--            <td th:text="${#dates.format(item.date, 'MM/yyyy')}"></td>-->
-
-            <!--                        <td th:text="${item.date}"></td>-->
-            <!--            <td th:text="${item.amount}"></td>-->
             <td th:text="'₹ ' + ${item.amount}"></td>
-
             <td th:text="${item.expenseSource}"></td>
-            <!--            <td th:text="${item.billCategory}"></td>-->
             <td th:text="${item.remarks}"></td>
-
             <td>
-                <!--                <a class="edit-button" th:href="@{'/edit/' + ${item.getTransactionId()}}">Edit</a>-->
                 <a class="delete-button" th:href="@{'/delete/' + ${item.getTransactionId}}"
                    onclick="return confirm('Are you sure?')">Delete</a>
             </td>
         </tr>
         </tbody>
     </table>
-    <!--    <a class="add-button" th:href="@{/expenseForm}">ADD NEW TRANSACTION</a>-->
-
 
 </div>
 <div class="transactionForm" id="transactionForm">
@@ -148,13 +137,10 @@
             <option th:selected="selected" th:disabled="disabled"
                     value="">Please Select...
             </option>
-
-            <!--        <option value="">Select an option</option>-->
             <option value="creditExpense">CREDIT EXPENSE</option>
             <option value="debitExpense">DEBIT EXPENSE</option>
             <option value="addBalance">ADD BALANCE</option>
             <option value="repayment">REPAYMENT</option>
-            <!--            <option value="splitwise">SPLITWISE</option>-->
         </select>
         <form action="/processForm" method="post">
 
@@ -235,8 +221,6 @@
         </form>
         <form action="/processForm" method="post">
             <div id="addBalanceFields" style="display: none;">
-                <!--            <label for="field3">Field 3:</label>-->
-                <!--            <input type="text" id="field3" name="field3">-->
                 <div class="input">
                     <label class="addBalanceAmount" for="addBalanceAmount">Amount</label>
                     <input type="text" name="addBalanceAmount" id="addBalanceAmount" required autocomplete="off">

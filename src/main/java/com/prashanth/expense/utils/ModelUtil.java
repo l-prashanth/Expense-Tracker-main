@@ -10,9 +10,7 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.ui.Model;
-
 import java.util.List;
-
 import static com.prashanth.expense.constants.Constants.*;
 import static com.prashanth.expense.utils.CommonUtils.*;
 

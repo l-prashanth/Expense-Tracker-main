@@ -2,6 +2,7 @@ package com.prashanth.expense.service.transaction;
 
 import com.prashanth.expense.model.transactionfield.*;
 import com.prashanth.expense.model.FilterTable;
+import com.prashanth.expense.repository.FilterTableRepository;
 import com.prashanth.expense.service.datamanipulation.FilterProcessorImpl;
 import com.prashanth.expense.service.status.StatusProcessorImpl;
 import com.prashanth.expense.utils.ModelUtil;
@@ -22,6 +23,7 @@ public class TransactionProcessorImpl implements TransactionProcessor {
 
     private StatusProcessorImpl statusProcessor;
     private FilterProcessorImpl filterProcessor;
+    private FilterTableRepository filterTableRepository;
     ModelUtil modelUtil;
 
     @Override
@@ -50,6 +52,7 @@ public class TransactionProcessorImpl implements TransactionProcessor {
         modelUtil.modelHandler(SET_EXPENSE_CATEGORIES, model);
         filterProcessor.handleFilteredDataModel(model);
     }
+
 
     private void processAmountIfNotEmpty(long amount, Runnable action) {
         if (isNotNullOrEmpty(amount)) {
