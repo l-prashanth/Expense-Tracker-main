@@ -255,6 +255,13 @@ h6 {
     z-index: 100;
 
 }
+.date-label {
+    font-size: 14px; /* Adjust the font size as desired */
+}
+
+.date-input {
+    font-size: 14px; /* Adjust the font size as desired */
+}
 
 .one-card-info {
     margin-top: 40px;
