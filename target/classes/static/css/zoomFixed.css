@@ -282,7 +282,6 @@ option:hover {
     margin-top: 70px;
     margin-left: 79ex;
     z-index: -100;
-
 }
 
 .one-card-info {
@@ -314,11 +313,9 @@ option:hover {
     margin-left: 114ex;
     z-index: 101;
 }
-date-input {
-    font-size: 2px; /* Adjust the size as needed */
-    color: #E1D9D1; /* Optional: Change the placeholder color */
+.debitDate{
+    z-index: 1000;
 }
-
 .expense-info:hover,
 .balance-info:hover,
 .hdfc-swiggy-info:hover,
