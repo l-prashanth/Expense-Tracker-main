@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<link rel="stylesheet" th:href="@{/css/login.css}">
+
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 300px; /* Adjust width as needed */
+            padding: 20px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+<body>
+<h1>Register</h1>
+<form action="#" th:action="@{/register}" method="post">
+    <label>Email:</label>
+    <input type="email" name="email" required />
+    <label>Phone:</label>
+    <input type="text" name="phone" required />
+    <button type="submit">Register</button>
+</form>
+</body>
+</html>

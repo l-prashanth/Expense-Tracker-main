@@ -27,7 +27,10 @@ public class BudgetController {
 //        transactionProcessor.handelModels(filterTable, model);
 //        return "budget";
 //    }
-
+//@GetMapping("/login")
+//public String login() {
+//    return "login"; // Return the login view
+//}
     @GetMapping("/budget")
     public String showForm(FilterTable filterTable, Model model, HttpServletRequest request) {
         log.info("Accessing budget page");
