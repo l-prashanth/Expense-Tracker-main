@@ -49,7 +49,10 @@ public class TransactionProcessorImpl implements TransactionProcessor {
         modelUtil.modelHandler(CARD_EXPENSE, model, AXIS_FLIPKART);
         modelUtil.modelHandler(SET_CREDIT_CATEGORIES, model);
         modelUtil.modelHandler(SET_EXPENSE_CATEGORIES, model);
-        modelUtil.modelHandler(SET_EXPENSE_CATEGORIES, model);
+        model.addAttribute("axisAce",ACE);
+        model.addAttribute("oneCard",ONE);
+        model.addAttribute("hdfcSwiggy",HDFC);
+        model.addAttribute("axisFlipkart",FLIPKART);
         filterProcessor.handleFilteredDataModel(model);
     }
 
