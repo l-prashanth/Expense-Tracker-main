@@ -5,6 +5,7 @@ import com.prashanth.expense.model.transactionfield.*;
 import com.prashanth.expense.model.FilterTable;
 import com.prashanth.expense.repository.ExpensesRepository;
 import com.prashanth.expense.service.transaction.TransactionProcessorImpl;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -20,11 +21,30 @@ public class BudgetController {
     TransactionProcessorImpl transactionProcessor;
     ExpensesRepository expensesRepository;
 
+//    @GetMapping("/budget")
+//    public String showForm(FilterTable filterTable, Model model) {
+//        log.info("");
+//        transactionProcessor.handelModels(filterTable, model);
+//        return "budget";
+//    }
+
     @GetMapping("/budget")
-    public String showForm(FilterTable filterTable, Model model) {
-        log.info("");
+    public String showForm(FilterTable filterTable, Model model, HttpServletRequest request) {
+        log.info("Accessing budget page");
+
+        // Process your models here
         transactionProcessor.handelModels(filterTable, model);
-        return "budget";
+
+        // Check if the request is from a mobile device
+        String userAgent = request.getHeader("User-Agent");
+        boolean isMobile = userAgent != null && userAgent.toLowerCase().contains("mobile");
+        System.out.println(isMobile);
+        // Return different views based on device type
+        if (isMobile) {
+            return "mobileBudget"; // Return mobile-specific HTML
+        } else {
+            return "budget"; // Return desktop HTML
+        }
     }
 
     @PostMapping("/processForm")

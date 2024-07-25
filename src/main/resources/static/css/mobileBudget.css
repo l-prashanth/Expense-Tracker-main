@@ -1,0 +1,347 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #020e1c;
+    color: #020e1c;
+    margin: 0;
+    padding: 0;
+}
+:root {
+    color-scheme: light only;
+}
+
+.filterForm, .transactionForm, .statusForm {
+    text-align: center;
+    background-color: #020e1c;
+    font-weight: bolder;
+    padding: 13.4px;
+    margin: 13.4px;
+    border-radius: 5.4px;
+    box-shadow: 0 8px 16px rgba(137, 255, 246, 0.2);
+}
+
+h2 {
+    color: #020e1c;
+}
+
+h3 {
+    color: #89fff6;
+    font-size: 4ex;
+    margin: 20px -1.3px;
+}
+
+.transactionForm {
+    position: absolute;
+    margin-top: 100ex;
+
+    width: 80ex;
+    margin-left: 10.8ex;
+}
+.filterForm {
+    position: absolute;
+    width: 40ex;
+    margin-left: 100ex;
+    margin-top: 100ex;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    text-shadow: 0 -3px 4px #89fff6;
+    /*-webkit-text-stroke: 0.7px #89fff6;*/
+}
+.statusLabel{
+    margin-top: 1.35ex;
+    font-size: 9ex;
+    color: #89fff6;
+}
+select, input {
+    font-weight: bolder;
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10.7px;
+    box-sizing: border-box;
+    box-shadow: 0 8px 16px rgba(137, 255, 246, 0.2);
+    border-radius: 2.7px;
+    background-color: #020e1c;
+    color: #89fff6;
+    height: 65px;
+}
+
+select {
+    height: 6ex;
+    font-size: 25px;
+    text-align: center;
+    color: #89fff6;
+}
+option{
+    font-size: 8px;
+    color: #89fff6;
+}
+
+.formHeading {
+    color: #89fff6;
+    font-size: 8ex;
+    font-weight: bolder;
+}
+
+button {
+    background-color: #020e1c;
+    color: #89fff6;
+    font-weight: bolder;
+    padding: 8px 13.4px;
+    border: none;
+    border-radius: 2.7px;
+    cursor: pointer;
+    font-size: 25px;
+    transition: background-color 0.3s ease;
+    box-sizing: border-box;
+    box-shadow: 0 8px 16px rgba(137, 255, 246, 0.2);
+}
+
+button:hover {
+    color: #020e1c;
+    background-color: #89fff6;
+}
+
+.delete-button:hover {
+    color: #020e1c;
+    background-color: #89fff6;
+}
+
+.table-container {
+    min-width: 160ex;
+    margin-top: 20ex;
+    margin-left: 3ex;
+    max-height: 1px;
+    /*min-height: 1ex;*/
+    overflow-y: auto;
+    border: 17px solid #020e1c;
+    scrollbar-color: #020e1c #020e1c;
+    border-collapse: separate;
+    border-spacing: 3.4px;
+}
+
+table {
+    background-color: #020e1c;
+    margin: 13.4px;
+    border-radius: 5.4px;
+    box-shadow: 0 8px 16px rgba(137, 255, 246, 0.2);
+    border-collapse: collapse;
+}
+
+.table-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    background-color: #000000;
+    border-radius: 4px;
+}
+
+.table-container::-webkit-scrollbar-track {
+    background-color: #000000;
+}
+
+button[type=button] {
+    margin-bottom: 6.7px;
+}
+
+th, td {
+
+    padding: 5.4px;
+    text-align: center;
+    font-size: 35px;
+    color: #89fff6;
+    font-weight: bolder;
+}
+
+td {
+    text-shadow: 0 -3px 4px #89fff6;
+    /*-webkit-text-stroke: 1px #3b1c00;*/
+}
+th{
+    text-shadow: 0 -3px 4px #020e1c;
+}
+
+
+th {
+    color: #020e1c;
+    transition: background-color 0.3s ease;
+    box-sizing: border-box;
+    box-shadow: 0 8px 16px rgba(137, 255, 246, 0.2);
+    font-size: 30px;
+    padding:25px;
+    background-color: #89fff6;
+}
+
+.delete-button {
+    display: inline-block;
+    padding: 6.7px;
+    margin-right: 6.7px;
+    background-color: #020e1c;
+    color: #89fff6;
+    transition: background-color 0.3s ease;
+    box-sizing: border-box;
+    box-shadow: 0 8px 16px rgba(137, 255, 246, 0.2);
+    text-decoration: none;
+    border-radius: 2.7px;
+}
+
+thead {
+    background-color: #89fff6;
+    color: #89fff6;
+    position: sticky;
+    top: 0;
+    padding: 2.7px;
+    margin-top: 0;
+
+}
+
+.table-container {
+    max-height: 60ex;
+    overflow-y: auto;
+    position: relative;
+}
+.transactionOptions{
+    font-size: 200px;
+}
+
+table {
+    width: 150ex;
+    background-color: #020e1c;
+    margin-top: 0;
+    border-radius: 5.4px;
+    box-shadow: 0 8px 16px rgba(137, 255, 246, 0.2);
+    border-collapse: collapse;
+}
+
+.delete-button:hover {
+    opacity: 0.8;
+}
+
+h5, h6 {
+    margin-bottom: 6.7px;
+    color: #89fff6;
+}
+
+select:hover, input[type=text]:hover {
+    background-color: #020e1c;
+}
+
+input[type=text] {
+    text-align: center;
+    background-color: #020e1c;
+    font-size: 25px;
+}
+
+h5 {
+    margin-top: 27px;
+    font-size: 25px;
+    font-weight: bolder;
+    color: #020e1c;
+}
+
+.hidden-text,.hidden-text1 {
+    margin-top: 15px;
+    font-size: 10ex;
+    font-weight: bolder;
+    color: #89fff6;
+    display: none;
+}
+
+.expense-info,
+.balance-info,
+.one-card-info,
+.axis-ace-info,
+.axis-flipkart-info,
+.hdfc-swiggy-info {
+    width: 70ex;
+    height: 25ex;
+    position: absolute;
+    display: inline-block;
+    padding: 5px 10px;
+    text-decoration: none;
+    cursor: pointer;
+    color: #020e1c;
+    font-size: 8px;
+    font-weight: bolder;
+    background-color: #020e1c;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(137, 255, 246, 0.2);
+    text-align: center;
+}
+
+.expense-info {
+    margin-top: 135ex;
+    margin-left: 10ex;
+    z-index: -100;
+}
+
+.one-card-info {
+    margin-top: 135ex;
+    margin-left: 189ex;
+    z-index: 104;
+}
+
+.balance-info {
+    margin-top: 135ex;
+    margin-left: 100ex;
+    z-index: 102;
+}
+
+.axis-ace-info {
+    margin-top: 163ex;
+    margin-left: 162ex;
+    z-index: 103;
+}
+
+.axis-flipkart-info {
+    margin-top: 163ex;
+    margin-left: 247ex;
+    z-index: 105;
+}
+
+.hdfc-swiggy-info {
+    margin-top: 163ex;
+    margin-left: 72.5ex;
+    z-index: 101;
+}
+
+.debitDate {
+    z-index: 1000;
+}
+
+/*.expense-info:hover,*/
+/*.balance-info:hover,*/
+/*.hdfc-swiggy-info:hover,*/
+/*.axis-flipkart-info:hover,*/
+/*.axis-ace-info:hover,*/
+/*.one-card-info:hover {*/
+/*    box-sizing: border-box;*/
+/*    !*box-shadow: 0 8px 16px rgba(137, 255, 246, 0.2);*!*/
+/*    background-color: #89fff6;*/
+/*}*/
+
+.expense-info:hover .hidden-text,
+.balance-info:hover .hidden-text,
+.hdfc-swiggy-info:hover .hidden-text,
+.axis-flipkart-info:hover .hidden-text,
+.axis-ace-info:hover .hidden-text,
+.one-card-info:hover .hidden-text {
+    display: block;
+}
+.expense-info:hover .statusLabel,
+.balance-info:hover .statusLabel,
+.hdfc-swiggy-info:hover .statusLabel,
+.axis-flipkart-info:hover .statusLabel,
+.axis-ace-info:hover .statusLabel,
+.one-card-info:hover .statusLabel
+{
+    display: none;
+}

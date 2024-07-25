@@ -37,5 +37,9 @@ public class Constants {
     public static final String BALANCE = "balanceAmount";
     public static final String CARD_EXPENSE_AMOUNT = "cardExpenseOf";
     public static final String TODAY_DATE = "defaultDate";
+    public static final String ACE = "ACE";
+    public static final String FLIPKART = "FLIPKART";
+    public static final String ONE = "ONE CARD";
+    public static final String HDFC = "HDFC";
 
 }

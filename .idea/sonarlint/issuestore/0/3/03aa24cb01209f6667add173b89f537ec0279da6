@@ -1,5 +1,7 @@
 
 V
-java:S4684"@Replace this persistent entity with a simple POJO or DTO object.(éîÌÊ
-V
-java:S4684"@Replace this persistent entity with a simple POJO or DTO object.(°îöº
+java:S4684 "@Replace this persistent entity with a simple POJO or DTO object.(ëâÓ°
+]	java:S125"<This block of commented-out lines of code should be removed.(Àîìüúÿÿÿÿ8ò‘”Ì2
+L	java:S106)"+Replace this use of System.out by a logger.(Êÿ›´üÿÿÿÿ8éâ¬Ì2
+]
+java:S46843"@Replace this persistent entity with a simple POJO or DTO object.(°îöº8°ú“Ì2
