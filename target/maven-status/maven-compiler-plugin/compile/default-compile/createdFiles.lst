@@ -11,6 +11,7 @@ com\prashanth\expense\service\datamanipulation\FilterProcessorImpl.class
 com\prashanth\expense\model\summary\Expenses.class
 com\prashanth\expense\model\category\CategoryList.class
 com\prashanth\expense\service\InitFilterCommandLineRunner.class
+com\prashanth\expense\controller\AuthController.class
 com\prashanth\expense\utils\ExpenseRepositoryFilterUtil.class
 com\prashanth\expense\model\transactionfield\Remarks.class
 com\prashanth\expense\service\datamanipulation\FilterProcessor.class

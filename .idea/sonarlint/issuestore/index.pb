@@ -129,3 +129,5 @@ l
 <src/main/java/com/prashanth/expense/service/UserService.java,1\f\1f3ab68587452dce59ea99d934df465a1b37cb51
 p
 @src/main/java/com/prashanth/expense/service/UserServiceImpl.java,3\d\3d7ebc8a891d47451834a7423374f3ed90438a0a
+p
+@src/test/java/com/prashanth/expense/ExpenseApplicationTests.java,4\0\4034fbac64909a725a6ceeaad6ce08543e228e84
