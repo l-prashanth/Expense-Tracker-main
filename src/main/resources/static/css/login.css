@@ -1,0 +1,83 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #020e1c; /* Dark background */
+    color: #89fff6; /* Light text color */
+    margin: 0; /* Remove default margin */
+}
+
+.login-container {
+    width: 600px;
+    /*height: 400px;*/
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.1); /* Slightly transparent white */
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(137, 255, 246, 0.2); /* Shadow effect */
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: bolder;
+    margin-bottom: 5px;
+}
+
+input[type="password"] {
+    padding: 20px;
+    font-size: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff; /* White background for input */
+    color: #000; /* Black text color for input */
+    margin-bottom: 15px;
+    transition: border-color 0.3s; /* Smooth transition for border color */
+}
+
+input[type="password"].error {
+    border-color: red; /* Red border on error */
+}
+
+button[type="submit"] {
+    font-size: 20px;
+    padding: 20px 20px;
+    background-color: #89fff6; /* Light color for button */
+    color: #020e1c; /* Dark text color */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #5cd9d9; /* Darker shade on hover */
+}
+
+.error {
+    color: red; /* Red color for error message */
+    margin-top: 10px;
+    text-align: center; /* Center the error message */
+}
+
+.shake {
+    animation: shake 0.5s ease-in-out; /* Apply shake animation */
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    50% { transform: translateX(10px); }
+    75% { transform: translateX(-10px); }
+    100% { transform: translateX(0); }
+}

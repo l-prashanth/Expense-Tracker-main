@@ -1,4 +1,5 @@
 com\prashanth\expense\service\transaction\TransactionProcessorImpl.class
+com\prashanth\expense\service\LoginService.class
 com\prashanth\expense\repository\ExpensesRepository.class
 com\prashanth\expense\model\transactionfield\ExpenseCategory.class
 com\prashanth\expense\service\transaction\TransactionProcessor.class
@@ -11,6 +12,8 @@ com\prashanth\expense\service\datamanipulation\FilterProcessorImpl.class
 com\prashanth\expense\model\summary\Expenses.class
 com\prashanth\expense\model\category\CategoryList.class
 com\prashanth\expense\service\InitFilterCommandLineRunner.class
+com\prashanth\expense\model\Login.class
+com\prashanth\expense\controller\AuthController.class
 com\prashanth\expense\utils\ExpenseRepositoryFilterUtil.class
 com\prashanth\expense\model\transactionfield\Remarks.class
 com\prashanth\expense\service\datamanipulation\FilterProcessor.class
@@ -25,6 +28,7 @@ com\prashanth\expense\constants\Constants.class
 com\prashanth\expense\repository\FilterTableRepository.class
 com\prashanth\expense\utils\ModelUtil.class
 com\prashanth\expense\model\transactionfield\CreditCardCategory.class
+com\prashanth\expense\repository\LoginRepository.class
 com\prashanth\expense\service\status\StatusProcessorImpl.class
 com\prashanth\expense\model\transactionfield\Date.class
 com\prashanth\expense\utils\ModelUtil$1.class
