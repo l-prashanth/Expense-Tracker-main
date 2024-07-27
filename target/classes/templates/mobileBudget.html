@@ -48,6 +48,8 @@
     }
 </script>
 <body>
+<div class="header-block"></div>
+<div class="header-block1"></div>
 <div class="transactionForm" id="transactionForm">
     <form action="/processForm" method="post">
         <div class="formHeading" th:text="TRANSACTION"></div>
@@ -55,7 +57,7 @@
         <label for="options"></label>
         <select id="options" name="selectedOption" onchange="showFields()">
             <option th:selected="selected" th:disabled="disabled"
-                    value="">Please Select...
+                    value="">PLEASE SELECT...
             </option>
             <option value="creditExpense">CREDIT EXPENSE</option>
             <option value="debitExpense">DEBIT EXPENSE</option>
@@ -66,15 +68,16 @@
 
             <div id="creditExpenseFields" style="display: none;">
                 <div>
-                    <h3><label class="creditCardAmount" for="creditCardAmount">Amount</label></h3>
+                    <h3>AMOUNT</h3>
+                    <label for="creditCardAmount"></label>
                     <input type="text" name="creditCardAmount" id="creditCardAmount" required autocomplete="off">
                 </div>
                 <div>
-                    <h3><label>Card Name</label></h3>
+                    <h3>CARD NAME</h3>
                     <label for="cardName"></label>
                     <select class="cardName" id="cardName" name="cardName" required>
                         <option th:selected="selected" th:disabled="disabled"
-                                value="">Please Select...
+                                value="">PLEASE SELECT...
                         </option>
                         <option th:each="creditCardCategory : ${allCreditCardCategories}"
                                 th:value="${creditCardCategory}"
@@ -82,11 +85,11 @@
                     </select>
                 </div>
                 <div>
-                    <h3><label>Bill Type</label></h3>
+                    <h3>BILL TYPE</h3>
                     <label for="creditExpenseType"></label>
                     <select class="creditExpenseType" id="creditExpenseType" name="creditExpenseType" required>
                         <option th:selected="selected" th:disabled="disabled"
-                                value="">Please Select...
+                                value="">PLEASE SELECT...
                         </option>
                         <option th:each="expenseCategory : ${allExpenseCategories}"
                                 th:value="${expenseCategory}"
@@ -94,13 +97,13 @@
                     </select>
                 </div>
                 <div>
-                    <h3><b class="dateStyle"> <label>Date</label></b></h3>
+                    <h3 class="dateStyle">DATE</h3>
                     <label for="creditDate"></label>
                     <input type="text" class="creditDate" id="creditDate" name="creditDate" th:value="${defaultDate}"
                            required autocomplete="off">
                 </div>
                 <div>
-                    <h3><label>REMARKS</label></h3>
+                    <h3>REMARKS</h3>
                     <label for="creditRemarks"></label>
                     <input type="text" class="cred" id="creditRemarks" name="creditRemarks" autocomplete="off">
                 </div>
@@ -111,28 +114,30 @@
             <div id="debitExpenseFields" style="display: none;">
 
                 <div class="input">
-                    <label class="debitCardAmount" for="debitCardAmount">Amount</label>
+                    <h3>AMOUNT</h3>
+                    <label for="debitCardAmount"></label>
                     <input type="text" name="debitCardAmount" id="debitCardAmount" required autocomplete="off">
                 </div>
                 <div>
-                    <label>Bill Type</label>
+                    <h3>BILL TYPE</h3>
                     <label for="debitExpenseType"></label>
                     <select class="debitExpenseType" id="debitExpenseType" name="debitExpenseType" required>
                         <option th:selected="selected" th:disabled="disabled"
-                                value="">Please Select...
+                                value="">PLEASE SELECT...
                         </option>
                         <option th:each="expenseCategory : ${allExpenseCategories}" th:value="${expenseCategory}"
                                 th:text="${expenseCategory}"></option>
                     </select>
                 </div>
                 <div>
-                    <b class="dateStyle"> <label>Date</label></b>
+<!--                    <h3 class="dateStyle"> <label>Date</label></h3>-->
+<!--                    <label for="debitDate"></label>-->
                     <label for="debitDate"></label>
                     <input type="text" class="debitDate" id="debitDate" name="debitDate" th:value="${defaultDate}"
-                           required autocomplete="off">
+                                                          required autocomplete="off">
                 </div>
                 <div>
-                    <h3><label>REMARKS</label></h3>
+                    <h3>REMARKS</h3>
                     <label for="debitRemarks"></label>
                     <input type="text" class="debitRemarks" id="debitRemarks" name="debitRemarks" autocomplete="off">
                 </div>
@@ -142,11 +147,12 @@
         <form action="/processForm" method="post">
             <div id="addBalanceFields" style="display: none;">
                 <div class="input">
-                    <label class="addBalanceAmount" for="addBalanceAmount">Amount</label>
-                    <input type="text" name="addBalanceAmount" id="addBalanceAmount" required autocomplete="off">
+                    <h3>AMOUNT</h3>
+                    <label for="addBalanceAmount">
+                    </label><input type="text" name="addBalanceAmount" id="addBalanceAmount" required autocomplete="off">
                 </div>
                 <div>
-                    <b class="dateStyle"> <label>Date</label></b>
+                    <h3><b class="dateStyle"> <label>Date</label></b></h3>
                     <label for="addBalanceDate">
 
                     </label><input type="text" class="addBalanceDate" id="addBalanceDate" name="addBalanceDate"
@@ -154,7 +160,7 @@
                                    required autocomplete="off">
                 </div>
                 <div>
-                    <h3><label>REMARKS</label></h3>
+                    <h3>REMARKS</h3>
                     <label for="balanceRemarks"></label>
                     <input type="text" class="balanceRemarks" id="balanceRemarks" name="balanceRemarks"
                            autocomplete="off">
@@ -167,16 +173,17 @@
 
             <div id="repaymentFields" style="display: none;">
                 <div class="input">
-                    <label class="repaymentAmount" for="repaymentAmount">Amount</label>
-                    <input type="text" name="repaymentAmount" id="repaymentAmount" required autocomplete="off">
+                    <h3>AMOUNT</h3>
+                    <label for="repaymentAmount">
+                    </label><input type="text" name="repaymentAmount" id="repaymentAmount" required autocomplete="off">
                 </div>
                 <div>
                     <div>
-                        <label>Card Name</label>
+                        <h3>CARD NAME</h3>
                         <label for="cardName"></label>
                         <select class="cardName" id="cardName" name="cardName" required>
                             <option th:selected="selected" th:disabled="disabled"
-                                    value="">Please Select...
+                                    value="">PLEASE SELECT...
                             </option>
                             <option th:each="creditCardCategory : ${allCreditCardCategories}"
                                     th:value="${creditCardCategory}"
@@ -185,7 +192,7 @@
                     </div>
                 </div>
                 <div>
-                    <b class="dateStyle"> <label>Date</label></b>
+                    <h3 class="dateStyle"> DATE</h3>
                     <label for="creditRepaymentDate"></label>
                     <input type="text" class="creditRepaymentDate" id="creditRepaymentDate" name="creditRepaymentDate"
                            th:value="${defaultDate}"
@@ -233,44 +240,44 @@
         <div class="formHeading" th:text="FILTER"></div>
         <button type="button" id="toggleButton" onclick="toggleFieldsFilter()">OPEN FILTER</button>
         <div id="allFields" style="display: none;">
-            <h3> <label>YEAR</label></h3>
+            <h3>YEAR</h3>
             <label for="year"></label>
             <select class="year" id="year" name="year" required>
                 <option th:selected="selected" th:disabled="disabled"
-                        value="">Please Select...
+                        value="">PLEASE SELECT...
                 </option>
                 <option th:each="yearCategory : ${allYearCategories}"
                         th:value="${yearCategory}"
                         th:text="${yearCategory}"></option>
             </select>
 
-            <h3> <label>MONTH</label></h3>
+            <h3>MONTH</h3>
             <label for="month"></label>
             <select class="month" id="month" name="month">
                 <option th:selected="selected" th:disabled="disabled"
-                        value="">Please Select...
+                        value="">PLEASE SELECT...
                 </option>
                 <option th:each="monthCategory : ${allMonthCategories}"
                         th:value="${monthCategory}"
                         th:text="${monthCategory}"></option>
             </select>
 
-            <h3> <label>Expense</label></h3>
+            <h3>EXPENSE</h3>
             <label for="billType"></label>
             <select class="billType" id="billType" name="billType">
                 <option th:selected="selected" th:disabled="disabled"
-                        value="">Please Select...
+                        value="">PLEASE SELECT...
                 </option>
                 <option th:each="expenseCategory : ${allExpenseCategories}"
                         th:value="${expenseCategory}"
                         th:text="${expenseCategory}"></option>
             </select>
 
-            <h3><label>Card Name</label></h3>
+            <h3>CARD NAME</h3>
             <label for="cardType"></label>
             <select class="cardType" id="cardType" name="cardType">
                 <option th:selected="selected" th:disabled="disabled"
-                        value="">Please Select...
+                        value="">PLEASE SELECT...
                 </option>
                 <option th:each="creditCardCategory : ${allCreditCardCategories}"
                         th:value="${creditCardCategory}"
@@ -296,7 +303,7 @@
             <td th:text="${#dates.format(item.date, 'dd / MM / yyyy')}"></td>
             <td th:text="'₹ ' + ${item.amount}"></td>
             <td th:text="${item.expenseSource}"></td>
-<!--            <td th:text="${item.remarks}"></td>-->
+            <!--            <td th:text="${item.remarks}"></td>-->
             <td>
                 <a class="delete-button" th:href="@{'/delete/' + ${item.getTransactionId}}"
                    onclick="return confirm('Are you sure?')">Delete</a>
