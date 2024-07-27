@@ -67,11 +67,11 @@ public class LoginService {
     }
 
     public String budgetLogin(HttpServletRequest request) {
-
-        Optional<Login> user = loginRepository.findById(1);
-        if (user.isPresent() && !Objects.equals(user.get().getUser(), "Personal")) {
-            return "redirect:/login";
-        }
+//
+//        Optional<Login> user = loginRepository.findById(1);
+//        if (user.isPresent() && !Objects.equals(user.get().getUser(), "Personal")) {
+//            return "redirect:/login";
+//        }
         closeSession();
         if (isMobile(request)) {
             return "mobileBudget"; // Return mobile-specific HTML
