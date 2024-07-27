@@ -72,4 +72,31 @@ $(function () {
 $(function () {
     $("#addBalanceDate").datepicker();
 });
+// let expenseInfo = document.getElementById("options").value;
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.expense-info, .balance-info, .axis-ace-info, .one-card-info, .axis-flipkart-info, .hdfc-swiggy-info').forEach(function(element) {
+        // Function to show/hide elements
+        function toggleElementVisibility() {
+            const hiddenText = element.querySelector('.hidden-text');
+            const statusLabel = element.querySelector('.statusLabel');
+
+            if (hiddenText && statusLabel) {
+                hiddenText.classList.add('show'); // Show the hidden text
+                statusLabel.classList.add('hide'); // Hide the status label
+
+                setTimeout(function() {
+                    hiddenText.classList.remove('show'); // Hide the hidden text after 2 seconds
+                    statusLabel.classList.remove('hide'); // Show the status label again
+                }, 2000); // 2000 milliseconds = 2 seconds
+            }
+        }
+
+        // Add event listeners for both mouseover and touchstart
+        element.addEventListener('mouseover', toggleElementVisibility);
+        element.addEventListener('touchstart', function(event) {
+            event.preventDefault(); // Prevent default touch behavior
+            toggleElementVisibility();
+        });
+    });
+});
 

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" th:href="@{/css/desktopLogin.css}">
+</head>
+<body>
+<div class="login-container">
+    <h1>Login</h1>
+    <form action="#" th:action="@{/login}" method="post">
+        <label>Password:</label>
+        <input type="password" name="password" required
+               th:class="${error} ? 'error shake' : ''" /> <!-- Apply shake on error -->
+        <br />
+        <button type="submit">Login</button>
+    </form>
+    <div th:if="${error}" class="error">Invalid password.</div>
+</div>
+</body>
+</html>

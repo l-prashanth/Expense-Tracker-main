@@ -23,34 +23,57 @@ public class LoginService {
         return loginPassword.equals(password);
     }
 
-    public String loginSession(String password, Model model) {
+    public String loginSession(String password, Model model, HttpServletRequest request) {
         if (authenticate(password)) {
             openSession();
             return "redirect:/budget";
         } else {
             model.addAttribute("error", true);
-            return "login"; // Stay on the login page
+            if (isMobile(request)) {
+                return "login"; // Stay on the login page
+
+            } else {
+                return "desktopLogin"; // Stay on the
+            }
         }
     }
+
+    public String loginPage(Model model, HttpServletRequest request) {
+        model.addAttribute("error", false);
+        if (isMobile(request)) {
+            return "login"; // Stay on the login page
+
+        } else {
+            return "desktopLogin"; // Stay on the
+        }
+    }
+
+
     public void openSession() {
         Login login = new Login();
         login.setUser("Personal");
         loginRepository.save(login);
     }
+
     public void closeSession() {
-        Login login=new Login();
+        Login login = new Login();
         login.setUser("required");
         loginRepository.save(login);
     }
-    public String budgetLogin(HttpServletRequest request){
+
+    public boolean isMobile(HttpServletRequest request) {
         String userAgent = request.getHeader("User-Agent");
-        boolean isMobile = userAgent != null && userAgent.toLowerCase().contains("mobile");
+        return userAgent != null && userAgent.toLowerCase().contains("mobile");
+    }
+
+    public String budgetLogin(HttpServletRequest request) {
+
         Optional<Login> user = loginRepository.findById(1);
         if (user.isPresent() && !Objects.equals(user.get().getUser(), "Personal")) {
             return "redirect:/login";
         }
         closeSession();
-        if (isMobile) {
+        if (isMobile(request)) {
             return "mobileBudget"; // Return mobile-specific HTML
         } else {
             return "budget"; // Return desktop HTML

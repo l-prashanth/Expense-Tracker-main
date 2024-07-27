@@ -38,8 +38,7 @@ h3 {
 
 .transactionForm {
     position: absolute;
-    margin-top: 110ex;
-
+    margin-top: 120ex;
     width: 80ex;
     margin-left: 10.8ex;
 }
@@ -47,7 +46,7 @@ h3 {
     position: absolute;
     width: 40ex;
     margin-left: 100ex;
-    margin-top: 110ex;
+    margin-top: 120ex;
 }
 
 label {
@@ -57,7 +56,7 @@ label {
     /*-webkit-text-stroke: 0.7px #89fff6;*/
 }
 .statusLabel{
-    margin-top: 1.35ex;
+    margin-top: 1.37ex;
     font-size: 9ex;
     color: #89fff6;
 }
@@ -118,10 +117,8 @@ button:hover {
 
 .table-container {
     min-width: 160ex;
-    margin-top: 25ex;
+    margin-top: 35ex;
     margin-left: 3ex;
-    max-height: 1px;
-    /*min-height: 1ex;*/
     overflow-y: auto;
     border: 17px solid #020e1c;
     scrollbar-color: #020e1c #020e1c;
@@ -208,7 +205,7 @@ thead {
 }
 
 .table-container {
-    max-height: 70ex;
+    max-height: 80ex;
     overflow-y: auto;
     position: relative;
 }
@@ -254,12 +251,12 @@ h5 {
     color: #020e1c;
 }
 
-.hidden-text,.hidden-text1 {
-    margin-top: 15px;
+.hidden-text{
+    margin-top: -2.45ex;
     font-size: 10ex;
     font-weight: bolder;
     color: #89fff6;
-    display: none;
+    /*display: none;*/
 }
 
 .expense-info,
@@ -274,7 +271,7 @@ h5 {
     display: inline-block;
     padding: 5px 10px;
     text-decoration: none;
-    cursor: pointer;
+    /*cursor: pointer;*/
     color: #020e1c;
     font-size: 8px;
     font-weight: bolder;
@@ -285,37 +282,37 @@ h5 {
 }
 
 .expense-info {
-    margin-top: 145ex;
+    margin-top: 165ex;
     margin-left: 10ex;
     z-index: -100;
 }
 
 .one-card-info {
-    margin-top: 145ex;
+    margin-top: 165ex;
     margin-left: 189ex;
     z-index: 104;
 }
 
 .balance-info {
-    margin-top: 145ex;
+    margin-top: 165ex;
     margin-left: 100ex;
     z-index: 102;
 }
 
 .axis-ace-info {
-    margin-top: 173ex;
+    margin-top: 193ex;
     margin-left: 162ex;
     z-index: 103;
 }
 
 .axis-flipkart-info {
-    margin-top: 173ex;
+    margin-top: 193ex;
     margin-left: 247ex;
     z-index: 105;
 }
 
 .hdfc-swiggy-info {
-    margin-top: 173ex;
+    margin-top: 193ex;
     margin-left: 72.5ex;
     z-index: 101;
 }
@@ -323,40 +320,67 @@ h5 {
 .debitDate {
     z-index: 1000;
 }
+/*.statusLabel {*/
+/*    transition: display 0.5s ease; !* Optional: smooth transition *!*/
+/*}*/
 
-.expense-info:hover .hidden-text,
-.balance-info:hover .hidden-text,
-.hdfc-swiggy-info:hover .hidden-text,
-.axis-flipkart-info:hover .hidden-text,
-.axis-ace-info:hover .hidden-text,
-.one-card-info:hover .hidden-text {
-    display: block;
+/*.hidden-text {*/
+/*    display: none;*/
+/*    transition: display 0.5s ease; !* Optional: smooth transition *!*/
+/*}*/
+.hidden-text {
+    opacity: 0; /* Initially hidden */
+    visibility: hidden; /* Prevents interaction */
+    transition: opacity 0.5s ease, visibility 0.5s ease; /* Transition for fade effect */
 }
-.expense-info:hover .statusLabel,
-.balance-info:hover .statusLabel,
-.hdfc-swiggy-info:hover .statusLabel,
-.axis-flipkart-info:hover .statusLabel,
-.axis-ace-info:hover .statusLabel,
-.one-card-info:hover .statusLabel
-{
-    display: none;
+
+.hidden-text.show {
+    opacity: 1; /* Fully visible */
+    visibility: visible; /* Allows interaction */
 }
+
+.statusLabel {
+    opacity: 1; /* Initially visible */
+    transition: opacity 0.5s ease; /* Transition for fade effect */
+}
+
+.statusLabel.hide {
+    opacity: 0; /* Fade out */
+}
+
+/*.expense-info:hover .hidden-text,*/
+/*.balance-info:hover .hidden-text,*/
+/*.hdfc-swiggy-info:hover .hidden-text,*/
+/*.axis-flipkart-info:hover .hidden-text,*/
+/*.axis-ace-info:hover .hidden-text,*/
+/*.one-card-info:hover .hidden-text {*/
+/*    display: block;*/
+/*}*/
+/*.expense-info:hover .statusLabel,*/
+/*.balance-info:hover .statusLabel,*/
+/*.hdfc-swiggy-info:hover .statusLabel,*/
+/*.axis-flipkart-info:hover .statusLabel,*/
+/*.axis-ace-info:hover .statusLabel,*/
+/*.one-card-info:hover .statusLabel*/
+/*{*/
+/*    display: none;*/
+/*}*/
 
 .header-block {
     width: 150.05ex;
     height: 20px; /* Adjust height as needed */
     background-color: #89fff6; /* Adjust background color as needed */
     position: absolute;
-    top: 24.8ex;
+    top: 35ex;
     left: 6.7ex;
     z-index: 2;
 }
 .header-block1 {
     width: 2ex;
-    height: 122px; /* Adjust height as needed */
+    height: 124px; /* Adjust height as needed */
     background-color: #89fff6; /* Adjust background color as needed */
     position: absolute;
-    top: 25ex;
+    top: 35ex;
     left: 6ex;
     z-index: 2;
 }
