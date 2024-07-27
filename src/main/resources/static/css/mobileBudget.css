@@ -33,11 +33,12 @@ h3 {
     color: #89fff6;
     font-size: 4ex;
     margin: 20px -1.3px;
+    font-weight: bolder;
 }
 
 .transactionForm {
     position: absolute;
-    margin-top: 100ex;
+    margin-top: 110ex;
 
     width: 80ex;
     margin-left: 10.8ex;
@@ -46,7 +47,7 @@ h3 {
     position: absolute;
     width: 40ex;
     margin-left: 100ex;
-    margin-top: 100ex;
+    margin-top: 110ex;
 }
 
 label {
@@ -91,14 +92,15 @@ option{
 }
 
 button {
+    margin-top: 5px;
     background-color: #020e1c;
     color: #89fff6;
     font-weight: bolder;
-    padding: 8px 13.4px;
+    padding: 10px 17px;
     border: none;
-    border-radius: 2.7px;
+    border-radius: 3px;
     cursor: pointer;
-    font-size: 25px;
+    font-size: 30px;
     transition: background-color 0.3s ease;
     box-sizing: border-box;
     box-shadow: 0 8px 16px rgba(137, 255, 246, 0.2);
@@ -116,7 +118,7 @@ button:hover {
 
 .table-container {
     min-width: 160ex;
-    margin-top: 20ex;
+    margin-top: 25ex;
     margin-left: 3ex;
     max-height: 1px;
     /*min-height: 1ex;*/
@@ -129,8 +131,8 @@ button:hover {
 
 table {
     background-color: #020e1c;
-    margin: 13.4px;
-    border-radius: 5.4px;
+    margin: 14px;
+    border-radius: 6px;
     box-shadow: 0 8px 16px rgba(137, 255, 246, 0.2);
     border-collapse: collapse;
 }
@@ -154,7 +156,7 @@ button[type=button] {
 
 th, td {
 
-    padding: 5.4px;
+    /*padding: 6px;*/
     text-align: center;
     font-size: 35px;
     color: #89fff6;
@@ -171,12 +173,14 @@ th{
 
 
 th {
+    margin-top: 300px;
+
     color: #020e1c;
     transition: background-color 0.3s ease;
     box-sizing: border-box;
     box-shadow: 0 8px 16px rgba(137, 255, 246, 0.2);
-    font-size: 30px;
-    padding:25px;
+    font-size: 40px;
+    padding:30px;
     background-color: #89fff6;
 }
 
@@ -204,7 +208,7 @@ thead {
 }
 
 .table-container {
-    max-height: 60ex;
+    max-height: 70ex;
     overflow-y: auto;
     position: relative;
 }
@@ -223,6 +227,9 @@ table {
 
 .delete-button:hover {
     opacity: 0.8;
+}
+.table-container table tbody td {
+    padding-top: 30px; /* Adjust the value as needed */
 }
 
 h5, h6 {
@@ -278,37 +285,37 @@ h5 {
 }
 
 .expense-info {
-    margin-top: 135ex;
+    margin-top: 145ex;
     margin-left: 10ex;
     z-index: -100;
 }
 
 .one-card-info {
-    margin-top: 135ex;
+    margin-top: 145ex;
     margin-left: 189ex;
     z-index: 104;
 }
 
 .balance-info {
-    margin-top: 135ex;
+    margin-top: 145ex;
     margin-left: 100ex;
     z-index: 102;
 }
 
 .axis-ace-info {
-    margin-top: 163ex;
+    margin-top: 173ex;
     margin-left: 162ex;
     z-index: 103;
 }
 
 .axis-flipkart-info {
-    margin-top: 163ex;
+    margin-top: 173ex;
     margin-left: 247ex;
     z-index: 105;
 }
 
 .hdfc-swiggy-info {
-    margin-top: 163ex;
+    margin-top: 173ex;
     margin-left: 72.5ex;
     z-index: 101;
 }
@@ -316,17 +323,6 @@ h5 {
 .debitDate {
     z-index: 1000;
 }
-
-/*.expense-info:hover,*/
-/*.balance-info:hover,*/
-/*.hdfc-swiggy-info:hover,*/
-/*.axis-flipkart-info:hover,*/
-/*.axis-ace-info:hover,*/
-/*.one-card-info:hover {*/
-/*    box-sizing: border-box;*/
-/*    !*box-shadow: 0 8px 16px rgba(137, 255, 246, 0.2);*!*/
-/*    background-color: #89fff6;*/
-/*}*/
 
 .expense-info:hover .hidden-text,
 .balance-info:hover .hidden-text,
@@ -344,4 +340,27 @@ h5 {
 .one-card-info:hover .statusLabel
 {
     display: none;
+}
+
+.header-block {
+    width: 150.05ex;
+    height: 20px; /* Adjust height as needed */
+    background-color: #89fff6; /* Adjust background color as needed */
+    position: absolute;
+    top: 24.8ex;
+    left: 6.7ex;
+    z-index: 2;
+}
+.header-block1 {
+    width: 2ex;
+    height: 122px; /* Adjust height as needed */
+    background-color: #89fff6; /* Adjust background color as needed */
+    position: absolute;
+    top: 25ex;
+    left: 6ex;
+    z-index: 2;
+}
+.creditRepaymentDate,.addBalanceDate,.debitDate,.creditDate{
+    height: 70px;
+    font-size: 25px;
 }
