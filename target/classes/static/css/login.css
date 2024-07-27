@@ -10,6 +10,7 @@ body {
 }
 
 .login-container {
+    margin-top: -10ex;
     width: 600px;
     /*height: 400px;*/
     padding: 30px;
